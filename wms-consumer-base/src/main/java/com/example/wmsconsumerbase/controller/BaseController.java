@@ -23,6 +23,7 @@ public class BaseController {
     String port;
     @GetMapping("/base/{id}")
     public BaseGoodsInfo findBySkuid(@PathVariable Long id){
+        System.out.println("当前服务端口："+port);
         return this.restTemplate.getForObject("http://localhost:8003/baseGoodsInfo/" + id, BaseGoodsInfo.class);
     }
 }

@@ -21,16 +21,12 @@ public class HelloService {
     @Autowired
     RestTemplate restTemplate;
     @HystrixCommand(fallbackMethod = "hiError")
-    public String hiService(String name) {
-        BaseGoodsInfo baseGoodsInfo = restTemplate.getForObject("http://wms-consumer-base/base/"+name,BaseGoodsInfo.class);
-        System.out.println(baseGoodsInfo);
-        String string = baseGoodsInfo.toString();
-        return string;
-
-    }// cofco-PC:wms-consumer-base:8001
-    public String hiError(String name) {
-//        return null;
-        return "hi,"+name+",sorry,error!";
+    public BaseGoodsInfo hiService(String name) {
+        return restTemplate.getForObject("http://wms-consumer-base/base/"+name,BaseGoodsInfo.class);
+    }
+    public BaseGoodsInfo hiError(String name) {
+        return null;
+//        return "hi,"+name+",sorry,error!";
     }
 
 }

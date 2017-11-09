@@ -16,7 +16,7 @@ public class HelloControler {
     @Autowired
     HelloService helloService;
     @RequestMapping(value = "/base")
-    public String hi(@RequestParam String name){
+    public BaseGoodsInfo hi(@RequestParam String name){
         return helloService.hiService(name);
     }
 
