@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.wmsproviderbase.dao.BaseGoodsInfoMapper">
+  <resultMap id="BaseGoodsInfoMapper" type="com.example.wmsproviderbase.entity.BaseGoodsInfo">
+    <id column="SKUID" jdbcType="DECIMAL" property="skuid" />
+    <result column="SKUNAME" jdbcType="VARCHAR" property="skuname" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="BARCODE" jdbcType="VARCHAR" property="barcode" />
+    <result column="CID1" jdbcType="DECIMAL" property="cid1" />
+    <result column="CID1NAME" jdbcType="VARCHAR" property="cid1name" />
+    <result column="CID2" jdbcType="DECIMAL" property="cid2" />
+    <result column="CID2NAME" jdbcType="VARCHAR" property="cid2name" />
+    <result column="CID3" jdbcType="DECIMAL" property="cid3" />
+    <result column="CID3NAME" jdbcType="VARCHAR" property="cid3name" />
+    <result column="CID4" jdbcType="DECIMAL" property="cid4" />
+    <result column="CID4NAME" jdbcType="VARCHAR" property="cid4name" />
+    <result column="CID5" jdbcType="DECIMAL" property="cid5" />
+    <result column="CID5NAME" jdbcType="VARCHAR" property="cid5name" />
+    <result column="BATCHRULE" jdbcType="DECIMAL" property="batchrule" />
+    <result column="KEEPDAYS" jdbcType="DECIMAL" property="keepdays" />
+    <result column="WARNINGDAY" jdbcType="DECIMAL" property="warningday" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="ISBUYSALE" jdbcType="DECIMAL" property="isbuysale" />
+    <result column="ISPHCARD" jdbcType="DECIMAL" property="isphcard" />
+    <result column="SALETAXRATE" jdbcType="DECIMAL" property="saletaxrate" />
+    <result column="ORIGINALSKUID" jdbcType="DECIMAL" property="originalskuid" />
+    <result column="ORIGINALCODE" jdbcType="VARCHAR" property="originalcode" />
+    <result column="ORIGINALNAME" jdbcType="VARCHAR" property="originalname" />
+    <result column="ISSURPLUS" jdbcType="DECIMAL" property="issurplus" />
+    <result column="PKBARCODEID" jdbcType="VARCHAR" property="pkbarcodeid" />
+    <result column="ISARE" jdbcType="DECIMAL" property="isare" />
+    <result column="SKUNATURE" jdbcType="DECIMAL" property="skunature" />
+    <result column="CREATETIME" jdbcType="DATE" property="createtime" />
+    <result column="ISDELETE" jdbcType="DECIMAL" property="isdelete" />
+    <result column="ISAUTOFREEZE" jdbcType="DECIMAL" property="isautofreeze" />
+    <result column="ISMIX" jdbcType="DECIMAL" property="ismix" />
+    <result column="RENEWFREETIME" jdbcType="DATE" property="renewfreetime" />
+    <result column="CLASSIFY" jdbcType="DECIMAL" property="classify" />
+    <result column="VALUABLEFLAG" jdbcType="DECIMAL" property="valuableflag" />
+    <result column="ISSCAN" jdbcType="DECIMAL" property="isscan" />
+    <result column="OPERATORID" jdbcType="DECIMAL" property="operatorid" />
+    <result column="OPERATORNAME" jdbcType="VARCHAR" property="operatorname" />
+    <result column="MODIFYTIME" jdbcType="DATE" property="modifytime" />
+    <result column="SPEC" jdbcType="VARCHAR" property="spec" />
+    <result column="UNITNAME" jdbcType="VARCHAR" property="unitname" />
+    <result column="ERPWEIGHT" jdbcType="DECIMAL" property="erpweight" />
+    <result column="INSTOCKDAYS" jdbcType="DECIMAL" property="instockdays" />
+    <result column="PACKPROPERTY" jdbcType="DECIMAL" property="packproperty" />
+    <result column="SHOPID" jdbcType="VARCHAR" property="shopid" />
+    <result column="SHELFFLAG" jdbcType="DECIMAL" property="shelfflag" />
+    <result column="LIMITOUTDAYS" jdbcType="DECIMAL" property="limitoutdays" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SKUID, SKUNAME, STATUS, BARCODE, CID1, CID1NAME, CID2, CID2NAME, CID3, CID3NAME, 
+    CID4, CID4NAME, CID5, CID5NAME, BATCHRULE, KEEPDAYS, WARNINGDAY, REMARK, ISBUYSALE, 
+    ISPHCARD, SALETAXRATE, ORIGINALSKUID, ORIGINALCODE, ORIGINALNAME, ISSURPLUS, PKBARCODEID, 
+    ISARE, SKUNATURE, CREATETIME, ISDELETE, ISAUTOFREEZE, ISMIX, RENEWFREETIME, CLASSIFY, 
+    VALUABLEFLAG, ISSCAN, OPERATORID, OPERATORNAME, MODIFYTIME, SPEC, UNITNAME, ERPWEIGHT, 
+    INSTOCKDAYS, PACKPROPERTY, SHOPID, SHELFFLAG, LIMITOUTDAYS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseGoodsInfoMapper">
+    select 
+    <include refid="Base_Column_List" />
+    from BASE_GOODSINFO
+    where SKUID = #{skuid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from BASE_GOODSINFO
+    where SKUID = #{skuid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.example.wmsproviderbase.entity.BaseGoodsInfo">
+    insert into BASE_GOODSINFO (SKUID, SKUNAME, STATUS, 
+      BARCODE, CID1, CID1NAME, 
+      CID2, CID2NAME, CID3, 
+      CID3NAME, CID4, CID4NAME, 
+      CID5, CID5NAME, BATCHRULE, 
+      KEEPDAYS, WARNINGDAY, REMARK, 
+      ISBUYSALE, ISPHCARD, SALETAXRATE, 
+      ORIGINALSKUID, ORIGINALCODE, ORIGINALNAME, 
+      ISSURPLUS, PKBARCODEID, ISARE, 
+      SKUNATURE, CREATETIME, ISDELETE, 
+      ISAUTOFREEZE, ISMIX, RENEWFREETIME, 
+      CLASSIFY, VALUABLEFLAG, ISSCAN, 
+      OPERATORID, OPERATORNAME, MODIFYTIME, 
+      SPEC, UNITNAME, ERPWEIGHT, 
+      INSTOCKDAYS, PACKPROPERTY, SHOPID, 
+      SHELFFLAG, LIMITOUTDAYS)
+    values (#{skuid,jdbcType=DECIMAL}, #{skuname,jdbcType=VARCHAR}, #{status,jdbcType=DECIMAL}, 
+      #{barcode,jdbcType=VARCHAR}, #{cid1,jdbcType=DECIMAL}, #{cid1name,jdbcType=VARCHAR}, 
+      #{cid2,jdbcType=DECIMAL}, #{cid2name,jdbcType=VARCHAR}, #{cid3,jdbcType=DECIMAL}, 
+      #{cid3name,jdbcType=VARCHAR}, #{cid4,jdbcType=DECIMAL}, #{cid4name,jdbcType=VARCHAR}, 
+      #{cid5,jdbcType=DECIMAL}, #{cid5name,jdbcType=VARCHAR}, #{batchrule,jdbcType=DECIMAL}, 
+      #{keepdays,jdbcType=DECIMAL}, #{warningday,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, 
+      #{isbuysale,jdbcType=DECIMAL}, #{isphcard,jdbcType=DECIMAL}, #{saletaxrate,jdbcType=DECIMAL}, 
+      #{originalskuid,jdbcType=DECIMAL}, #{originalcode,jdbcType=VARCHAR}, #{originalname,jdbcType=VARCHAR}, 
+      #{issurplus,jdbcType=DECIMAL}, #{pkbarcodeid,jdbcType=VARCHAR}, #{isare,jdbcType=DECIMAL}, 
+      #{skunature,jdbcType=DECIMAL}, #{createtime,jdbcType=DATE}, #{isdelete,jdbcType=DECIMAL}, 
+      #{isautofreeze,jdbcType=DECIMAL}, #{ismix,jdbcType=DECIMAL}, #{renewfreetime,jdbcType=DATE}, 
+      #{classify,jdbcType=DECIMAL}, #{valuableflag,jdbcType=DECIMAL}, #{isscan,jdbcType=DECIMAL}, 
+      #{operatorid,jdbcType=DECIMAL}, #{operatorname,jdbcType=VARCHAR}, #{modifytime,jdbcType=DATE}, 
+      #{spec,jdbcType=VARCHAR}, #{unitname,jdbcType=VARCHAR}, #{erpweight,jdbcType=DECIMAL}, 
+      #{instockdays,jdbcType=DECIMAL}, #{packproperty,jdbcType=DECIMAL}, #{shopid,jdbcType=VARCHAR}, 
+      #{shelfflag,jdbcType=DECIMAL}, #{limitoutdays,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.wmsproviderbase.entity.BaseGoodsInfo">
+    insert into BASE_GOODSINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="skuid != null">
+        SKUID,
+      </if>
+      <if test="skuname != null">
+        SKUNAME,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="barcode != null">
+        BARCODE,
+      </if>
+      <if test="cid1 != null">
+        CID1,
+      </if>
+      <if test="cid1name != null">
+        CID1NAME,
+      </if>
+      <if test="cid2 != null">
+        CID2,
+      </if>
+      <if test="cid2name != null">
+        CID2NAME,
+      </if>
+      <if test="cid3 != null">
+        CID3,
+      </if>
+      <if test="cid3name != null">
+        CID3NAME,
+      </if>
+      <if test="cid4 != null">
+        CID4,
+      </if>
+      <if test="cid4name != null">
+        CID4NAME,
+      </if>
+      <if test="cid5 != null">
+        CID5,
+      </if>
+      <if test="cid5name != null">
+        CID5NAME,
+      </if>
+      <if test="batchrule != null">
+        BATCHRULE,
+      </if>
+      <if test="keepdays != null">
+        KEEPDAYS,
+      </if>
+      <if test="warningday != null">
+        WARNINGDAY,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="isbuysale != null">
+        ISBUYSALE,
+      </if>
+      <if test="isphcard != null">
+        ISPHCARD,
+      </if>
+      <if test="saletaxrate != null">
+        SALETAXRATE,
+      </if>
+      <if test="originalskuid != null">
+        ORIGINALSKUID,
+      </if>
+      <if test="originalcode != null">
+        ORIGINALCODE,
+      </if>
+      <if test="originalname != null">
+        ORIGINALNAME,
+      </if>
+      <if test="issurplus != null">
+        ISSURPLUS,
+      </if>
+      <if test="pkbarcodeid != null">
+        PKBARCODEID,
+      </if>
+      <if test="isare != null">
+        ISARE,
+      </if>
+      <if test="skunature != null">
+        SKUNATURE,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="isdelete != null">
+        ISDELETE,
+      </if>
+      <if test="isautofreeze != null">
+        ISAUTOFREEZE,
+      </if>
+      <if test="ismix != null">
+        ISMIX,
+      </if>
+      <if test="renewfreetime != null">
+        RENEWFREETIME,
+      </if>
+      <if test="classify != null">
+        CLASSIFY,
+      </if>
+      <if test="valuableflag != null">
+        VALUABLEFLAG,
+      </if>
+      <if test="isscan != null">
+        ISSCAN,
+      </if>
+      <if test="operatorid != null">
+        OPERATORID,
+      </if>
+      <if test="operatorname != null">
+        OPERATORNAME,
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME,
+      </if>
+      <if test="spec != null">
+        SPEC,
+      </if>
+      <if test="unitname != null">
+        UNITNAME,
+      </if>
+      <if test="erpweight != null">
+        ERPWEIGHT,
+      </if>
+      <if test="instockdays != null">
+        INSTOCKDAYS,
+      </if>
+      <if test="packproperty != null">
+        PACKPROPERTY,
+      </if>
+      <if test="shopid != null">
+        SHOPID,
+      </if>
+      <if test="shelfflag != null">
+        SHELFFLAG,
+      </if>
+      <if test="limitoutdays != null">
+        LIMITOUTDAYS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="skuid != null">
+        #{skuid,jdbcType=DECIMAL},
+      </if>
+      <if test="skuname != null">
+        #{skuname,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="barcode != null">
+        #{barcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cid1 != null">
+        #{cid1,jdbcType=DECIMAL},
+      </if>
+      <if test="cid1name != null">
+        #{cid1name,jdbcType=VARCHAR},
+      </if>
+      <if test="cid2 != null">
+        #{cid2,jdbcType=DECIMAL},
+      </if>
+      <if test="cid2name != null">
+        #{cid2name,jdbcType=VARCHAR},
+      </if>
+      <if test="cid3 != null">
+        #{cid3,jdbcType=DECIMAL},
+      </if>
+      <if test="cid3name != null">
+        #{cid3name,jdbcType=VARCHAR},
+      </if>
+      <if test="cid4 != null">
+        #{cid4,jdbcType=DECIMAL},
+      </if>
+      <if test="cid4name != null">
+        #{cid4name,jdbcType=VARCHAR},
+      </if>
+      <if test="cid5 != null">
+        #{cid5,jdbcType=DECIMAL},
+      </if>
+      <if test="cid5name != null">
+        #{cid5name,jdbcType=VARCHAR},
+      </if>
+      <if test="batchrule != null">
+        #{batchrule,jdbcType=DECIMAL},
+      </if>
+      <if test="keepdays != null">
+        #{keepdays,jdbcType=DECIMAL},
+      </if>
+      <if test="warningday != null">
+        #{warningday,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="isbuysale != null">
+        #{isbuysale,jdbcType=DECIMAL},
+      </if>
+      <if test="isphcard != null">
+        #{isphcard,jdbcType=DECIMAL},
+      </if>
+      <if test="saletaxrate != null">
+        #{saletaxrate,jdbcType=DECIMAL},
+      </if>
+      <if test="originalskuid != null">
+        #{originalskuid,jdbcType=DECIMAL},
+      </if>
+      <if test="originalcode != null">
+        #{originalcode,jdbcType=VARCHAR},
+      </if>
+      <if test="originalname != null">
+        #{originalname,jdbcType=VARCHAR},
+      </if>
+      <if test="issurplus != null">
+        #{issurplus,jdbcType=DECIMAL},
+      </if>
+      <if test="pkbarcodeid != null">
+        #{pkbarcodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="isare != null">
+        #{isare,jdbcType=DECIMAL},
+      </if>
+      <if test="skunature != null">
+        #{skunature,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=DATE},
+      </if>
+      <if test="isdelete != null">
+        #{isdelete,jdbcType=DECIMAL},
+      </if>
+      <if test="isautofreeze != null">
+        #{isautofreeze,jdbcType=DECIMAL},
+      </if>
+      <if test="ismix != null">
+        #{ismix,jdbcType=DECIMAL},
+      </if>
+      <if test="renewfreetime != null">
+        #{renewfreetime,jdbcType=DATE},
+      </if>
+      <if test="classify != null">
+        #{classify,jdbcType=DECIMAL},
+      </if>
+      <if test="valuableflag != null">
+        #{valuableflag,jdbcType=DECIMAL},
+      </if>
+      <if test="isscan != null">
+        #{isscan,jdbcType=DECIMAL},
+      </if>
+      <if test="operatorid != null">
+        #{operatorid,jdbcType=DECIMAL},
+      </if>
+      <if test="operatorname != null">
+        #{operatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=DATE},
+      </if>
+      <if test="spec != null">
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="unitname != null">
+        #{unitname,jdbcType=VARCHAR},
+      </if>
+      <if test="erpweight != null">
+        #{erpweight,jdbcType=DECIMAL},
+      </if>
+      <if test="instockdays != null">
+        #{instockdays,jdbcType=DECIMAL},
+      </if>
+      <if test="packproperty != null">
+        #{packproperty,jdbcType=DECIMAL},
+      </if>
+      <if test="shopid != null">
+        #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="shelfflag != null">
+        #{shelfflag,jdbcType=DECIMAL},
+      </if>
+      <if test="limitoutdays != null">
+        #{limitoutdays,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.wmsproviderbase.entity.BaseGoodsInfo">
+    update BASE_GOODSINFO
+    <set>
+      <if test="skuname != null">
+        SKUNAME = #{skuname,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="barcode != null">
+        BARCODE = #{barcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cid1 != null">
+        CID1 = #{cid1,jdbcType=DECIMAL},
+      </if>
+      <if test="cid1name != null">
+        CID1NAME = #{cid1name,jdbcType=VARCHAR},
+      </if>
+      <if test="cid2 != null">
+        CID2 = #{cid2,jdbcType=DECIMAL},
+      </if>
+      <if test="cid2name != null">
+        CID2NAME = #{cid2name,jdbcType=VARCHAR},
+      </if>
+      <if test="cid3 != null">
+        CID3 = #{cid3,jdbcType=DECIMAL},
+      </if>
+      <if test="cid3name != null">
+        CID3NAME = #{cid3name,jdbcType=VARCHAR},
+      </if>
+      <if test="cid4 != null">
+        CID4 = #{cid4,jdbcType=DECIMAL},
+      </if>
+      <if test="cid4name != null">
+        CID4NAME = #{cid4name,jdbcType=VARCHAR},
+      </if>
+      <if test="cid5 != null">
+        CID5 = #{cid5,jdbcType=DECIMAL},
+      </if>
+      <if test="cid5name != null">
+        CID5NAME = #{cid5name,jdbcType=VARCHAR},
+      </if>
+      <if test="batchrule != null">
+        BATCHRULE = #{batchrule,jdbcType=DECIMAL},
+      </if>
+      <if test="keepdays != null">
+        KEEPDAYS = #{keepdays,jdbcType=DECIMAL},
+      </if>
+      <if test="warningday != null">
+        WARNINGDAY = #{warningday,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="isbuysale != null">
+        ISBUYSALE = #{isbuysale,jdbcType=DECIMAL},
+      </if>
+      <if test="isphcard != null">
+        ISPHCARD = #{isphcard,jdbcType=DECIMAL},
+      </if>
+      <if test="saletaxrate != null">
+        SALETAXRATE = #{saletaxrate,jdbcType=DECIMAL},
+      </if>
+      <if test="originalskuid != null">
+        ORIGINALSKUID = #{originalskuid,jdbcType=DECIMAL},
+      </if>
+      <if test="originalcode != null">
+        ORIGINALCODE = #{originalcode,jdbcType=VARCHAR},
+      </if>
+      <if test="originalname != null">
+        ORIGINALNAME = #{originalname,jdbcType=VARCHAR},
+      </if>
+      <if test="issurplus != null">
+        ISSURPLUS = #{issurplus,jdbcType=DECIMAL},
+      </if>
+      <if test="pkbarcodeid != null">
+        PKBARCODEID = #{pkbarcodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="isare != null">
+        ISARE = #{isare,jdbcType=DECIMAL},
+      </if>
+      <if test="skunature != null">
+        SKUNATURE = #{skunature,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=DATE},
+      </if>
+      <if test="isdelete != null">
+        ISDELETE = #{isdelete,jdbcType=DECIMAL},
+      </if>
+      <if test="isautofreeze != null">
+        ISAUTOFREEZE = #{isautofreeze,jdbcType=DECIMAL},
+      </if>
+      <if test="ismix != null">
+        ISMIX = #{ismix,jdbcType=DECIMAL},
+      </if>
+      <if test="renewfreetime != null">
+        RENEWFREETIME = #{renewfreetime,jdbcType=DATE},
+      </if>
+      <if test="classify != null">
+        CLASSIFY = #{classify,jdbcType=DECIMAL},
+      </if>
+      <if test="valuableflag != null">
+        VALUABLEFLAG = #{valuableflag,jdbcType=DECIMAL},
+      </if>
+      <if test="isscan != null">
+        ISSCAN = #{isscan,jdbcType=DECIMAL},
+      </if>
+      <if test="operatorid != null">
+        OPERATORID = #{operatorid,jdbcType=DECIMAL},
+      </if>
+      <if test="operatorname != null">
+        OPERATORNAME = #{operatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME = #{modifytime,jdbcType=DATE},
+      </if>
+      <if test="spec != null">
+        SPEC = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="unitname != null">
+        UNITNAME = #{unitname,jdbcType=VARCHAR},
+      </if>
+      <if test="erpweight != null">
+        ERPWEIGHT = #{erpweight,jdbcType=DECIMAL},
+      </if>
+      <if test="instockdays != null">
+        INSTOCKDAYS = #{instockdays,jdbcType=DECIMAL},
+      </if>
+      <if test="packproperty != null">
+        PACKPROPERTY = #{packproperty,jdbcType=DECIMAL},
+      </if>
+      <if test="shopid != null">
+        SHOPID = #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="shelfflag != null">
+        SHELFFLAG = #{shelfflag,jdbcType=DECIMAL},
+      </if>
+      <if test="limitoutdays != null">
+        LIMITOUTDAYS = #{limitoutdays,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where SKUID = #{skuid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.wmsproviderbase.entity.BaseGoodsInfo">
+    update BASE_GOODSINFO
+    set SKUNAME = #{skuname,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=DECIMAL},
+      BARCODE = #{barcode,jdbcType=VARCHAR},
+      CID1 = #{cid1,jdbcType=DECIMAL},
+      CID1NAME = #{cid1name,jdbcType=VARCHAR},
+      CID2 = #{cid2,jdbcType=DECIMAL},
+      CID2NAME = #{cid2name,jdbcType=VARCHAR},
+      CID3 = #{cid3,jdbcType=DECIMAL},
+      CID3NAME = #{cid3name,jdbcType=VARCHAR},
+      CID4 = #{cid4,jdbcType=DECIMAL},
+      CID4NAME = #{cid4name,jdbcType=VARCHAR},
+      CID5 = #{cid5,jdbcType=DECIMAL},
+      CID5NAME = #{cid5name,jdbcType=VARCHAR},
+      BATCHRULE = #{batchrule,jdbcType=DECIMAL},
+      KEEPDAYS = #{keepdays,jdbcType=DECIMAL},
+      WARNINGDAY = #{warningday,jdbcType=DECIMAL},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      ISBUYSALE = #{isbuysale,jdbcType=DECIMAL},
+      ISPHCARD = #{isphcard,jdbcType=DECIMAL},
+      SALETAXRATE = #{saletaxrate,jdbcType=DECIMAL},
+      ORIGINALSKUID = #{originalskuid,jdbcType=DECIMAL},
+      ORIGINALCODE = #{originalcode,jdbcType=VARCHAR},
+      ORIGINALNAME = #{originalname,jdbcType=VARCHAR},
+      ISSURPLUS = #{issurplus,jdbcType=DECIMAL},
+      PKBARCODEID = #{pkbarcodeid,jdbcType=VARCHAR},
+      ISARE = #{isare,jdbcType=DECIMAL},
+      SKUNATURE = #{skunature,jdbcType=DECIMAL},
+      CREATETIME = #{createtime,jdbcType=DATE},
+      ISDELETE = #{isdelete,jdbcType=DECIMAL},
+      ISAUTOFREEZE = #{isautofreeze,jdbcType=DECIMAL},
+      ISMIX = #{ismix,jdbcType=DECIMAL},
+      RENEWFREETIME = #{renewfreetime,jdbcType=DATE},
+      CLASSIFY = #{classify,jdbcType=DECIMAL},
+      VALUABLEFLAG = #{valuableflag,jdbcType=DECIMAL},
+      ISSCAN = #{isscan,jdbcType=DECIMAL},
+      OPERATORID = #{operatorid,jdbcType=DECIMAL},
+      OPERATORNAME = #{operatorname,jdbcType=VARCHAR},
+      MODIFYTIME = #{modifytime,jdbcType=DATE},
+      SPEC = #{spec,jdbcType=VARCHAR},
+      UNITNAME = #{unitname,jdbcType=VARCHAR},
+      ERPWEIGHT = #{erpweight,jdbcType=DECIMAL},
+      INSTOCKDAYS = #{instockdays,jdbcType=DECIMAL},
+      PACKPROPERTY = #{packproperty,jdbcType=DECIMAL},
+      SHOPID = #{shopid,jdbcType=VARCHAR},
+      SHELFFLAG = #{shelfflag,jdbcType=DECIMAL},
+      LIMITOUTDAYS = #{limitoutdays,jdbcType=DECIMAL}
+    where SKUID = #{skuid,jdbcType=DECIMAL}
+  </update>
+</mapper>
