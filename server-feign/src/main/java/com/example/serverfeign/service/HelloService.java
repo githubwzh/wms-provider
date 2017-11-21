@@ -3,8 +3,10 @@ package com.example.serverfeign.service;
 import com.example.serverfeign.entity.BaseGoodsInfo;
 import com.example.serverfeign.service.impl.HelloServiceImpl;
 import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * ClassDescribe:
@@ -15,6 +17,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @FeignClient(value = "wms-consumer-base",fallback = HelloServiceImpl.class)
 public interface HelloService {
-    @RequestMapping(value = "/base/{name}",method = RequestMethod.GET)
-    public BaseGoodsInfo hiService(String name) ;
+    @GetMapping(value = "/base-feign")
+    public BaseGoodsInfo hiService(@RequestParam(value = "name") String name) ;
 }

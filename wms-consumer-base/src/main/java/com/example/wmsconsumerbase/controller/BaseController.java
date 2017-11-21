@@ -3,10 +3,9 @@ package com.example.wmsconsumerbase.controller;
 import com.example.wmsconsumerbase.entity.BaseGoodsInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+
 
 /**
  * ClassDescribe:
@@ -25,5 +24,10 @@ public class BaseController {
     public BaseGoodsInfo findBySkuid(@PathVariable Long id){
         System.out.println("当前服务端口："+port);
         return this.restTemplate.getForObject("http://localhost:8003/baseGoodsInfo/" + id, BaseGoodsInfo.class);
+    }
+    @RequestMapping("/base-feign")
+    public BaseGoodsInfo findBySkuid01(@RequestParam String name){
+        System.out.println("当前服务端口："+port);
+        return this.restTemplate.getForObject("http://localhost:8003/baseGoodsInfo/" + name, BaseGoodsInfo.class);
     }
 }
